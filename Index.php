@@ -35,7 +35,7 @@
                             <input type="hidden" value="<?= $currentPost->id?>" name="id">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input id="icon_prefix" type="text" class="validate" name="name" value="<?= $currentPost->userName?>">
+                                <input id="icon_prefix" type="text" class="validate" name="userName" value="<?= $currentPost->userName?>">
                                 <label for="icon_prefix">First Name</label>
                             </div>
                             <div class="input-field col s12">

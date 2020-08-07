@@ -6,7 +6,7 @@ session_start();
 $currentPost = (object) ["id" => "", "userName" => "", "message" => ""];
 
 if(isset($_POST["add"])){
-    $name = $_POST["name"];
+    $name = $_POST["userName"];
     $message = $_POST["message"];
     if($name!= "" & $message!="") {
         $query = "insert into post values(default,'{$name}','{$message}','".date('Y-m-d H:i:s')."')";
@@ -36,8 +36,10 @@ if(isset($_GET["edit"])){
 }
 
 if(isset($_POST["update"])){
+    $name = $_POST["userName"];
+    $message = $_POST["message"];
     if($name!= "" & $message!="") {
-        $query = "update post set user_name='{$_POST["name"]}',message='{$_POST["message"]}' where id={$_POST["id"]}";
+        $query = "update post set user_name='{$name}',message='{$message}' where id={$_POST["id"]}";
         $db->query($query);
     };
     $currentPost->id = "";
