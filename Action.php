@@ -11,9 +11,9 @@ if(isset($_POST["add"])){
     if($name!= "" & $message!="") {
         $query = "insert into post values(default,'{$name}','{$message}','".date('Y-m-d H:i:s')."')";
         $db->query($query);
+        $_SESSION['response']="POST ADDED";
+        $_SESSION['responseStatusColor']= "green";
     };
-    $_SESSION['response']="POST ADDED";
-    $_SESSION['responseStatusColor']= "green";
     header("location:Index.php");
 }
 
@@ -41,12 +41,12 @@ if(isset($_POST["update"])){
     if($name!= "" & $message!="") {
         $query = "update post set user_name='{$name}',message='{$message}' where id={$_POST["id"]}";
         $db->query($query);
+        $_SESSION['response']="POST UPDATED";
+        $_SESSION['responseStatusColor']= "yellow darken-2";
     };
     $currentPost->id = "";
     $currentPost->userName= "";
     $currentPost->message = "";
-    $_SESSION['response']="POST UPDATED";
-    $_SESSION['responseStatusColor']= "yellow darken-2";
     header("location:Index.php");
 }
 
